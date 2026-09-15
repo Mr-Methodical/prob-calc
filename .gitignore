@@ -1,3 +1,5 @@
 /gcm.cache/
 /dice
 *.o
+input.txt
+output.txt
