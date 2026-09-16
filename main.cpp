@@ -1,36 +1,12 @@
-#ifdef __INTELLISENSE__
-#include <iostream>
-#include <fstream>
-#else
 import <iostream>;
 import <fstream>;
-#endif
-
-struct Experiment {
-  int sidesA;
-  int sidesB;
-  int threshold;
-};
-
-// a reference to the input stream
-bool readExperiment(std::istream& in, Experiment& e) {
-  if (!(in >> e.sidesA >> e.sidesB >> e.threshold)) {
-    return false;
-  }
-  return true;
-}
-
-void printExperiment(std::ostream& out, const Experiment& e) {
-  out << "First die: " << e.sidesA << "\n";
-  out << "Second die: " << e.sidesB << "\n";
-  out << "Minimum sum: " << e.threshold << "\n";
-}
+import experiment;
 
 int runExperiment(std::istream& in, std::ostream& out) {
   // empty braces initialize all values to 0
-  Experiment experiment{};
+  Prob::Experiment experiment{};
 
-  if (!readExperiment(in, experiment)) {
+  if (!Prob::readExperiment(in, experiment)) {
     // ex. if they put in string instead of integer
     std::cerr << "Expected 3 integers\n";
     return 1;
@@ -42,7 +18,7 @@ int runExperiment(std::istream& in, std::ostream& out) {
     return 1;
   }
 
-  printExperiment(out, experiment);
+  Prob::printExperiment(out, experiment);
   return 0;
 }
 
