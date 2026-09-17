@@ -19,6 +19,10 @@ int runExperiment(std::istream& in, std::ostream& out) {
   }
 
   Prob::printExperiment(out, experiment);
+  
+  const int favourable = Prob::countFavourable(experiment);
+  const int total = experiment.sidesA * experiment.sidesB;
+  out << "Probability: " << favourable << '/' << total << '\n';
   return 0;
 }
 

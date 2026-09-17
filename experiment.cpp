@@ -10,6 +10,8 @@ namespace Prob {
     int threshold;
   };
   
+  export int countFavourable(const Experiment& e);
+  
   export bool readExperiment(std::istream& in, Experiment& e);
 
   export void printExperiment(std::ostream& out, const Experiment& e);
